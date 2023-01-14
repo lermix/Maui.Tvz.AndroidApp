@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="Maui.TvzProject.CreateTaskPage"
+             Title="CreateTaskPage"
+				 BackgroundImageSource="light_mount">
+
+
+	<Grid Padding="10, 0, 0, 0">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="100"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="50"/>
+			<RowDefinition Height="50"/>
+			<RowDefinition Height="50"/>
+			<RowDefinition Height="200"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="40"/>
+		</Grid.RowDefinitions>
+
+		<!--ROW 0-->
+		<Label 				
+            Text="Task name: "
+            VerticalOptions="Center" >
+
+		</Label>
+		<Border
+			Grid.Column="1"
+			StrokeThickness="1"
+			WidthRequest="270"
+			HeightRequest="40"
+			StrokeShape="RoundRectangle 20,20,20,20"
+			HorizontalOptions="Start"			
+			BackgroundColor="LightGray"
+			Opacity="0.75"
+			>
+			<Entry  x:Name="entryName"
+					Grid.Column="1"
+					Margin="10, 0 ,0, 0"
+			   ></Entry>
+		</Border>
+
+
+		<!--ROW 1-->
+		<Label 		
+			Grid.Row="1"
+            Text="Date: "
+            VerticalOptions="Center" >
+		</Label>
+		<Border
+			Grid.Column="1"
+			Grid.Row="1"			
+			StrokeThickness="1"
+			WidthRequest="270"
+			HeightRequest="40"
+			StrokeShape="RoundRectangle 20,20,20,20"
+			HorizontalOptions="Start"
+			BackgroundColor="LightGray"
+			Opacity="0.75"
+			>
+			<StackLayout 
+				Orientation="Horizontal" 
+				Grid.Column="1"
+				Spacing="20"
+				HorizontalOptions="Center"
+			Grid.Row="1">
+				<DatePicker 			
+			x:Name="dpDate"				
+  
+			/>
+				<TimePicker x:Name="tpTime">
+
+				</TimePicker>
+			</StackLayout>
+		</Border>
+
+		<!--ROW 2-->
+		<Label 		
+			Grid.Row="2"
+            Text="Location: "
+            VerticalOptions="Center" >
+		</Label>
+		<Border
+			Grid.Column="1"
+			Grid.Row="2"
+			StrokeThickness="1"
+			WidthRequest="270"
+			HeightRequest="40"
+			StrokeShape="RoundRectangle 20,20,20,20"
+			HorizontalOptions="Start"
+			BackgroundColor="LightGray"
+			Opacity="0.75"
+			>
+			<Entry  x:Name="entryLocation"
+					Grid.Column="1"
+					Margin="10, 0 ,0, 0"
+			   ></Entry>
+		</Border>
+
+		<!--ROW 3-->
+		<Label 		
+			Grid.Row="3"
+            Text="Description: "
+            VerticalOptions="Center" >
+		</Label>
+		<Border
+			Grid.Column="1"
+			Grid.Row="3"
+			StrokeThickness="1"
+			WidthRequest="270"
+			HeightRequest="180"
+			StrokeShape="RoundRectangle 20,20,20,20"
+			HorizontalOptions="Start"
+			BackgroundColor="LightGray"
+			Opacity="0.75"
+			>
+			<Entry  x:Name="entryDescription"
+					Grid.Column="1"
+					Margin="10, 0 ,0, 0"
+					  HeightRequest="180"
+			   ></Entry>
+		</Border>
+
+
+
+		<Button x:Name="btnAdd" 
+				  Grid.Row="5" 
+				  Text="Add" 
+				  Clicked="btnAdd_Clicked" 
+				  BackgroundColor="LightGray" 
+				  Opacity="0.75" 
+				  TextColor="Black"
+				  WidthRequest="80"
+				  ></Button>
+		<Button x:Name="btnCancel"
+				  Grid.Row="5" 
+				  Grid.Column="1" 
+				  Text="Cancel"
+				  Clicked="btnCancel_Clicked" 
+				  BackgroundColor="LightGray" 
+				  Opacity="0.75"
+				  TextColor="Black"
+				  WidthRequest="200"></Button>
+	</Grid>
+</ContentPage>

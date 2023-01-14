@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Maui.TvzProject.CustomControls.LabelText"
+				 x:Name="this"
+				 BindingContext="{x:Reference this}">
+
+	<Border 
+			StrokeThickness="1"
+			HeightRequest="60"
+			StrokeShape="RoundRectangle 10,10,10,10"
+			BackgroundColor="LightGray"
+			Opacity="0.75"
+		>
+		<VerticalStackLayout >
+
+	
+			<Label 
+			  FontSize="15"
+             Text="{Binding Prop, FallbackValue=''}"             
+            HorizontalOptions="Start" 
+				Padding="5, 0, 0,0 "/>
+		
+		<Label 
+				FontSize="25"
+            Text="{Binding Value, FallbackValue=''}"				
+            HorizontalOptions="Start" 
+				Padding="5, 0, 0,0 "/>
+			
+			<Line Stroke="lightGray" X2="390"></Line>
+
+	</VerticalStackLayout>
+	</Border>
+
+</ContentView>
+ 

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+				 xmlns:controls="clr-namespace:Maui.TvzProject.CustomControls"
+             x:Class="Maui.TvzProject.ViewTaskPage"
+             Title="ViewTaskPage"
+				 BackgroundImageSource="light_mount"
+				  >
+    <VerticalStackLayout Padding="10 ,20, 10, 0" Spacing="30">
+		<controls:LabelText x:Name="lblName"/>
+		<HorizontalStackLayout HorizontalOptions="Center" Spacing="50">
+			<DatePicker x:Name="dpDate" FontSize="20"  IsEnabled="false" TextColor="Black"/>
+			<TimePicker x:Name="tpTime" FontSize="20" IsEnabled="False" TextColor="Black"/>
+		</HorizontalStackLayout>
+		<controls:LabelText x:Name="lblDescription" />
+		<controls:LabelText x:Name="lblLocation" />
+		<HorizontalStackLayout HorizontalOptions="Center">
+			<Label Text="Done: " FontSize="20"/>
+			<CheckBox x:Name="chkChecked"  Scale="1.5" CheckedChanged="chkChecked_CheckedChanged"/>
+		</HorizontalStackLayout>
+		
+
+
+		<!--<Label 
+			  BackgroundColor="Gray"
+			  Opacity="0.8"
+			  Text="A"
+            x:Name="lblName"           
+            HorizontalOptions="Center" />-->
+		
+        
+    </VerticalStackLayout>
+</ContentPage>
