@@ -23,12 +23,34 @@
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
                 HeightRequest="200"
                 HorizontalOptions="Center" />-->
-			<Grid x:Name="mainGrid" Padding="5">
+			<ListView ItemsSource="{Binding Tasks}" VerticalOptions="FillAndExpand" ItemTapped="ListView_ItemSelected">
+				<ListView.ItemTemplate >
+					<DataTemplate>
+						<ViewCell>
+							<Grid Padding="5" VerticalOptions="Fill">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="20"></RowDefinition>
+									<RowDefinition Height="1"></RowDefinition>
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="3*"></ColumnDefinition>
+									<ColumnDefinition Width="4*"></ColumnDefinition>
+									<ColumnDefinition Width="1*"></ColumnDefinition>
+								</Grid.ColumnDefinitions>
 
-			</Grid>
-            
+								
+								<Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}"/>
+								<Label Grid.Row="0" Grid.Column="1" Text="{Binding Date}"/>
+								<CheckBox Grid.Row="0" BindingContext="{Binding Id}" IsChecked="{Binding Done}" Grid.Column="2"  CheckedChanged="CheckBox_CheckedChanged"/>
 
-        </VerticalStackLayout>
+							</Grid>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+
+
+		</VerticalStackLayout>
     </ScrollView>
 
 </ContentPage>

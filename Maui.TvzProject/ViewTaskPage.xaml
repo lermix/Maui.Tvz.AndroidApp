@@ -18,7 +18,8 @@
 			<Label Text="Done: " FontSize="20"/>
 			<CheckBox x:Name="chkChecked"  Scale="1.5" CheckedChanged="chkChecked_CheckedChanged"/>
 		</HorizontalStackLayout>
-		
+		<Button x:Name="btnDelte" Text="Delete" VerticalOptions="End" Clicked="Button_Clicked"/>
+
 
 
 		<!--<Label 

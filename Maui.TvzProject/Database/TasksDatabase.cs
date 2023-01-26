@@ -64,15 +64,33 @@ namespace Maui.TvzProject.Database
 	  {
 		 await Init();
 		 if (item.Id != 0)
-			return await Database.UpdateAsync(item);
+			 await Database.UpdateAsync(item);
 		 else
-			return await Database.InsertAsync(item);
+			 await Database.InsertAsync(item);
+
+		 return item.Id;
 	  }
 
 	  public async Task<int> DeleteItemAsync( TaskItem item )
 	  {
 		 await Init();
 		 return await Database.DeleteAsync(item);
+	  }
+
+	  public async Task<int> DeleteAll()
+	  {
+		 await Init();
+		 return await Database.DeleteAllAsync<TaskItem>(  );
+	  }
+
+	  public async Task<int> DeleteWhere( Func<TaskItem, bool> predicate)
+	  {
+		 await Init();
+		 var items = (await Database.Table<TaskItem>().ToListAsync()).Where( x => predicate(x)).ToArray();
+		 for (int i = 0; i < items.Length; i++)
+			await Database.DeleteAsync(items[i]);
+
+		 return items.Length;
 	  }
 
    }

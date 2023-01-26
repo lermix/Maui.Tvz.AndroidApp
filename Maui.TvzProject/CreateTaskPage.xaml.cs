@@ -7,18 +7,21 @@ namespace Maui.TvzProject;
 public partial class CreateTaskPage : ContentPage
 {
 
-   List<TaskItem> tasks;
    Action<TaskItem> AddToGrid;
    private Action addToGrid;
 
-   public CreateTaskPage( List<TaskItem> tasks, Action<TaskItem> AddToGrid )
+   public CreateTaskPage(  Action<TaskItem> AddToGrid )
    {
 	  InitializeComponent();
-	  this.tasks = tasks;
 	  this.AddToGrid = AddToGrid;
 	  dpDate.MaximumDate = DateTime.Now.AddYears(5);
 	  dpDate.MinimumDate = DateTime.Now;
 	  tpTime.Time = DateTime.Now.TimeOfDay;
+
+	  entryName.WidthRequest = DeviceDisplay.MainDisplayInfo.Width / 5;
+	  entryLocation.WidthRequest = DeviceDisplay.MainDisplayInfo.Width / 5;
+	  entryDescription.WidthRequest = DeviceDisplay.MainDisplayInfo.Width / 5;
+	  borderTimePick.WidthRequest  = DeviceDisplay.MainDisplayInfo.Width / 5;
    }
 
    private async void btnAdd_Clicked( object sender, EventArgs e )
@@ -28,8 +31,6 @@ public partial class CreateTaskPage : ContentPage
 	  var currentItem = GetCurrentTask();
 
 	  currentItem.Id = await ( await TasksDatabase.Instance ).SaveItemAsync(currentItem);
-
-	  tasks.Add( currentItem );
 
 	  AddToGrid(currentItem);
 

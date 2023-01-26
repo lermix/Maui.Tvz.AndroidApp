@@ -29,17 +29,18 @@
 		</Label>
 		<Border
 			Grid.Column="1"
-			StrokeThickness="1"
-			WidthRequest="270"
+			StrokeThickness="1"			
 			HeightRequest="40"
 			StrokeShape="RoundRectangle 20,20,20,20"
 			HorizontalOptions="Start"			
 			BackgroundColor="LightGray"
 			Opacity="0.75"
+			 
 			>
 			<Entry  x:Name="entryName"
 					Grid.Column="1"
 					Margin="10, 0 ,0, 0"
+					
 			   ></Entry>
 		</Border>
 
@@ -51,10 +52,10 @@
             VerticalOptions="Center" >
 		</Label>
 		<Border
+			x:Name="borderTimePick"
 			Grid.Column="1"
 			Grid.Row="1"			
 			StrokeThickness="1"
-			WidthRequest="270"
 			HeightRequest="40"
 			StrokeShape="RoundRectangle 20,20,20,20"
 			HorizontalOptions="Start"
@@ -87,7 +88,6 @@
 			Grid.Column="1"
 			Grid.Row="2"
 			StrokeThickness="1"
-			WidthRequest="270"
 			HeightRequest="40"
 			StrokeShape="RoundRectangle 20,20,20,20"
 			HorizontalOptions="Start"
@@ -110,7 +110,6 @@
 			Grid.Column="1"
 			Grid.Row="3"
 			StrokeThickness="1"
-			WidthRequest="270"
 			HeightRequest="180"
 			StrokeShape="RoundRectangle 20,20,20,20"
 			HorizontalOptions="Start"

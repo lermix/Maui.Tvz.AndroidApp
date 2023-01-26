@@ -1,7 +1,11 @@
-﻿namespace Maui.TvzProject.Models
+﻿using SQLite;
+
+namespace Maui.TvzProject.Models
 {
    public class TaskItem
    {
+	  [AutoIncrement]
+	  [PrimaryKey]
 	  public int Id { get; set; }
 	  public string Name { get; set; }
 	  public DateTime Date { get; set; }
