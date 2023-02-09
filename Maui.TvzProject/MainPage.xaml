@@ -23,6 +23,7 @@
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
                 HeightRequest="200"
                 HorizontalOptions="Center" />-->
+			<Label x:Name="lblOrientation"></Label>
 			<ListView ItemsSource="{Binding Tasks}" VerticalOptions="FillAndExpand" ItemTapped="ListView_ItemSelected">
 				<ListView.ItemTemplate >
 					<DataTemplate>

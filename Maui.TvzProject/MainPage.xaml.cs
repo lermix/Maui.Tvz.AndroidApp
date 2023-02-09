@@ -1,7 +1,9 @@
 ﻿namespace Maui.TvzProject;
-
 using Maui.TvzProject.Database;
 using Maui.TvzProject.Models;
+#if ANDROID
+using Maui.TvzProject.Platforms.Android;
+#endif
 using Maui.TvzProject.ViewModels;
 
 public partial class MainPage : ContentPage
@@ -12,8 +14,11 @@ public partial class MainPage : ContentPage
    public MainPage(  )
    {
 	  InitializeComponent();
-	  BindingContext = new ListViewWithGridViewModel(tasks);	  
-
+	  BindingContext = new ListViewWithGridViewModel(tasks);
+#if ANDROID
+	  DeviceOrientationService orientationService = new DeviceOrientationService();
+	  lblOrientation.Text = orientationService.GetOrientation().ToString();
+#endif
 	  LoadDb();
    }
 
@@ -24,36 +29,6 @@ public partial class MainPage : ContentPage
 		 AddToGrid( task );
 
    }
-
-   //private void AddToGrid(TaskItem task)
-   //{
-	  //TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
-	  //tapGestureRecognizer.Tapped += async ( s, e ) =>
-	  //{
-		 //
-	  //};
-
-	  //mainGrid.AddRowDefinition(new RowDefinition());	  
-	  //var labelName = new Label
-	  //{
-		 //Text = task.Name,
-		 //FontSize = 18,
-		 //Padding= 8,		 
-	  //};
-	  //labelName.GestureRecognizers.Add(tapGestureRecognizer);
-
-	  //var labelDate = new Label
-	  //{
-		 //Text = task.Date.ToString("dd.MM.yyyy HH:mm"),
-		 //FontSize = 18,
-		 //Padding= 8,
-	  //};
-	  //labelDate.GestureRecognizers.Add(tapGestureRecognizer);
-	  
-
-	  //mainGrid.Add(labelName, 0, mainGrid.RowDefinitions.Count-1);
-	  //mainGrid.Add(labelDate, 1, mainGrid.RowDefinitions.Count -1);
-   //}
 
    private void AddToGrid(TaskItem taskItem) => ( (ListViewWithGridViewModel) BindingContext ).Tasks.Add(taskItem);
    private void RemoveFromGrid(TaskItem taskItem) => ( (ListViewWithGridViewModel) BindingContext ).Tasks.Remove( taskItem );
@@ -68,6 +43,11 @@ public partial class MainPage : ContentPage
 	  if ( found == null ) return;
 	  found.Done = e.Value;
 	  await ( await TasksDatabase.Instance ).SaveItemAsync( found );
+
+#if ANDROID
+	  DeviceOrientationService orientationService = new DeviceOrientationService();
+	  lblOrientation.Text = orientationService.GetOrientation().ToString();
+#endif
    }
 
    private async void ListView_ItemSelected( object sender, ItemTappedEventArgs e ) =>
